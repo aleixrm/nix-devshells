@@ -25,6 +25,9 @@
       {
         devShells.default = mkShell {
           inherit buildInputs nativeBuildInputs;
+          RUST_SRC_PATH = "${rust-bin.stable.latest.default.override {
+              extensions = [ "rust-src" ];
+          }}/lib/rustlib/src/rust/library";
         };
       }
     );
